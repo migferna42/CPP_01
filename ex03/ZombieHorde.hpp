@@ -1,30 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ZombieEvent.hpp                                    :+:      :+:    :+:   */
+/*   ZombieHorde.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: migferna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/14 13:58:29 by migferna          #+#    #+#             */
-/*   Updated: 2021/03/14 13:58:31 by migferna         ###   ########.fr       */
+/*   Created: 2021/03/14 14:14:51 by migferna          #+#    #+#             */
+/*   Updated: 2021/03/14 20:38:54 by migferna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ZOMBIE_EVENT_CLASS_H
-# define ZOMBIE_EVENT_CLASS_H
+#ifndef ZOMBIE_HORDE_CLASS_H
+# define ZOMBIE_HORDE_CLASS_H
 
+# include <iostream>
 # include "Zombie.hpp"
 
-class ZombieEvent
+class ZombieHorde
 {
-	std::string _type;
+	int		_size;
+	Zombie 	*_horde;
 public:
-	ZombieEvent();
-	~ZombieEvent();
-	std::string getType() const;
-	void setZombieType(std::string type);
-	Zombie *newZombie(std::string name) const;
-	Zombie randomChump() const;
+	ZombieHorde(int size);
+	~ZombieHorde();
+	int getSize() const;
+	std::string randomChump() const;
+	void announce() const;
 };
 
 #endif

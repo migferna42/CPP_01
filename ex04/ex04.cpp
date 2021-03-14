@@ -1,30 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ZombieEvent.hpp                                    :+:      :+:    :+:   */
+/*   ex04.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: migferna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/14 13:58:29 by migferna          #+#    #+#             */
-/*   Updated: 2021/03/14 13:58:31 by migferna         ###   ########.fr       */
+/*   Created: 2021/03/14 21:56:44 by migferna          #+#    #+#             */
+/*   Updated: 2021/03/14 22:02:09 by migferna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ZOMBIE_EVENT_CLASS_H
-# define ZOMBIE_EVENT_CLASS_H
+#include <iostream>
 
-# include "Zombie.hpp"
-
-class ZombieEvent
+int main(void)
 {
-	std::string _type;
-public:
-	ZombieEvent();
-	~ZombieEvent();
-	std::string getType() const;
-	void setZombieType(std::string type);
-	Zombie *newZombie(std::string name) const;
-	Zombie randomChump() const;
-};
+	std::string str;
+	std::string *pstr;
+	std::string &rstr = str;
 
-#endif
+	str = "HI THIS IS BRAIN";
+	pstr = &str;
+
+	std::cout << "El valor de la cadena usando una variable de tipo puntero es: " << *pstr << std::endl;
+	std::cout << "El valor de la cadena usando una variable de tipo referencia es: " << rstr << std::endl;
+
+	return (0);
+}

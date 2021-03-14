@@ -1,43 +1,54 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ZombieEvent.cpp                                    :+:      :+:    :+:   */
+/*   ZombieHorde.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: migferna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/14 13:58:20 by migferna          #+#    #+#             */
-/*   Updated: 2021/03/14 13:58:22 by migferna         ###   ########.fr       */
+/*   Created: 2021/03/14 14:28:01 by migferna          #+#    #+#             */
+/*   Updated: 2021/03/14 20:49:54 by migferna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
-#include "ZombieEvent.hpp"
-#include <iostream>
+#include "ZombieHorde.hpp"
 
-ZombieEvent::ZombieEvent(void):_type("empty")
+ZombieHorde::ZombieHorde(int size):_size(size)
 {
+	std::string name;
+	int it;
+
+	this->_horde = new Zombie[getSize()];
+	it = -1;
+	while (++it < getSize())
+	{
+		name = randomChump();
+		this->_horde[it].setName(name);
+	}
 }
 
-ZombieEvent::~ZombieEvent(void)
+ZombieHorde::~ZombieHorde(void)
 {
+	if (getSize() > 0)
+		delete[] this->_horde;
+	std::cout << "La horda zombie ha sido destruida, han caido " << getSize() << " zombies." << std::endl;
 }
 
-void	ZombieEvent::setZombieType(std::string type)
+int ZombieHorde::getSize(void) const
 {
-	this->_type = type;
+	return (this->_size);
 }
 
-std::string ZombieEvent::getType() const
+void ZombieHorde::announce(void) const
 {
-	return (this->_type);
+	int it;
+
+	it = -1;
+	while (++it < getSize())
+		this->_horde[it].announce();
+
 }
 
-Zombie *ZombieEvent::newZombie(std::string name) const
-{
-	return (new Zombie(name, getType()));
-}
-
-Zombie ZombieEvent::randomChump() const
+std::string ZombieHorde::randomChump() const
 {
 	std::string 	alphanumeric;
 	std::string 	name;
@@ -52,5 +63,5 @@ Zombie ZombieEvent::randomChump() const
 		name += alphanumeric[std::rand() % len];
 		it++;
 	}
-	return (Zombie(name, getType()));
+	return (name);
 }

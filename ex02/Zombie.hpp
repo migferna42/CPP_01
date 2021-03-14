@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Zombie.hpp                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: migferna <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/03/14 13:57:43 by migferna          #+#    #+#             */
+/*   Updated: 2021/03/14 20:51:26 by migferna         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef ZOMBIE_CLASS_H
 # define ZOMBIE_CLASS_H
 
@@ -13,6 +25,7 @@ public:
 	~Zombie();
 	std::string getType() const;
 	std::string getName() const;
+	void setName(std::string name);
 	void announce() const;
 };
 

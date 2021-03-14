@@ -6,20 +6,18 @@
 /*   By: migferna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/14 13:58:05 by migferna          #+#    #+#             */
-/*   Updated: 2021/03/14 20:52:46 by migferna         ###   ########.fr       */
+/*   Updated: 2021/03/14 21:52:52 by migferna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
-Zombie::Zombie():_name("noname"), _type("empty")
+Zombie::Zombie(void):_name("noname"),_type("empty")
 {
-	announce();
 }
 
-Zombie::Zombie(std::string name, std::string type):_name(name), _type(type)
+Zombie::Zombie(std::string name):_name(name)
 {
-	announce();
 }
 
 Zombie::~Zombie(void)
