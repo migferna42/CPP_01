@@ -1,25 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ex04.cpp                                           :+:      :+:    :+:   */
+/*   HumanB.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: migferna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/14 21:56:44 by migferna          #+#    #+#             */
-/*   Updated: 2021/03/20 22:09:40 by migferna         ###   ########.fr       */
+/*   Created: 2021/03/21 14:03:08 by migferna          #+#    #+#             */
+/*   Updated: 2021/03/21 17:13:07 by migferna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
+#include "Weapon.hpp"
+#include "HumanB.hpp"
 
-int main(void)
+HumanB::HumanB(std::string name):_name(name)
 {
-	std::string str = "HI THIS IS BRAIN";
-	std::string *pstr = &str;
-	std::string &rstr = str;
+}
 
-	std::cout << "El valor de la cadena usando una variable de tipo puntero es: " << *pstr << std::endl;
-	std::cout << "El valor de la cadena usando una variable de tipo referencia es: " << rstr << std::endl;
+HumanB::~HumanB(void)
+{
+}
 
-	return (0);
+std::string HumanB::getName() const
+{
+	return (this->_name);
+}
+
+void HumanB::setWeapon(Weapon &weapon)
+{
+	this->_weapon = &weapon;
+}
+
+void HumanB::attack() const
+{
+	std::cout << getName() << " attacks with his " << _weapon->getType() << std::endl;
 }

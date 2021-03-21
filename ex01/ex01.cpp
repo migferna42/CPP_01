@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 
-void	memoryLeak()
+void	memoryLeak(void)
 {
 	std::string *panthere = new std::string("String panthere");
 	std::cout << *panthere << std::endl;
@@ -11,5 +11,6 @@ void	memoryLeak()
 int main(void)
 {
 	memoryLeak();
+	//system("leaks a.out");
 	return (0);
 }

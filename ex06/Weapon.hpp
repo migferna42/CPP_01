@@ -1,25 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ex04.cpp                                           :+:      :+:    :+:   */
+/*   Weapon.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: migferna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/14 21:56:44 by migferna          #+#    #+#             */
-/*   Updated: 2021/03/20 22:09:40 by migferna         ###   ########.fr       */
+/*   Created: 2021/03/21 12:39:49 by migferna          #+#    #+#             */
+/*   Updated: 2021/03/21 14:49:17 by migferna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef WEAPON_CLASS_H
+# define WEAPON_CLASS_H
+
 #include <iostream>
 
-int main(void)
+class Weapon
 {
-	std::string str = "HI THIS IS BRAIN";
-	std::string *pstr = &str;
-	std::string &rstr = str;
+	std::string _type;
+public:
+	Weapon(void);
+	Weapon(std::string type);
+	~Weapon(void);
+	const std::string &getType(void) const;
+	void setType(const std::string type);
+};
 
-	std::cout << "El valor de la cadena usando una variable de tipo puntero es: " << *pstr << std::endl;
-	std::cout << "El valor de la cadena usando una variable de tipo referencia es: " << rstr << std::endl;
-
-	return (0);
-}
+#endif

@@ -1,25 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ex04.cpp                                           :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: migferna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/14 21:56:44 by migferna          #+#    #+#             */
-/*   Updated: 2021/03/20 22:09:40 by migferna         ###   ########.fr       */
+/*   Created: 2021/03/21 13:03:34 by migferna          #+#    #+#             */
+/*   Updated: 2021/03/21 14:42:59 by migferna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
+#include "Weapon.hpp"
+#include "HumanA.hpp"
+#include "HumanB.hpp"
 
 int main(void)
 {
-	std::string str = "HI THIS IS BRAIN";
-	std::string *pstr = &str;
-	std::string &rstr = str;
+	{
+		Weapon club = Weapon("crude spiked club");
 
-	std::cout << "El valor de la cadena usando una variable de tipo puntero es: " << *pstr << std::endl;
-	std::cout << "El valor de la cadena usando una variable de tipo referencia es: " << rstr << std::endl;
+		HumanA bob("Bob", club);
+		bob.attack();
+		club.setType("some other type of club");
+		bob.attack();
+	}
+	{
+		Weapon club = Weapon("crude spiked club");
 
-	return (0);
+		HumanB jim("Jim");
+		jim.setWeapon(club);
+		jim.attack();
+		club.setType("some other type of club");
+		jim.attack();
+	}
 }

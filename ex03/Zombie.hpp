@@ -6,7 +6,7 @@
 /*   By: migferna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/14 13:57:43 by migferna          #+#    #+#             */
-/*   Updated: 2021/03/14 21:53:11 by migferna         ###   ########.fr       */
+/*   Updated: 2021/03/21 11:03:04 by migferna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ class Zombie
 	std::string _type;
 public:
 	Zombie();
-	Zombie(std::string name);
+	Zombie(std::string name, std::string type);
 	~Zombie();
 	std::string getType(void) const;
 	std::string getName(void) const;

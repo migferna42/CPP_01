@@ -1,25 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ex04.cpp                                           :+:      :+:    :+:   */
+/*   HumanA.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: migferna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/14 21:56:44 by migferna          #+#    #+#             */
-/*   Updated: 2021/03/20 22:09:40 by migferna         ###   ########.fr       */
+/*   Created: 2021/03/21 13:07:53 by migferna          #+#    #+#             */
+/*   Updated: 2021/03/21 15:22:29 by migferna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
+#ifndef HUMAN_A_CLASS_H
+# define HUMAN_A_CLASS_H
 
-int main(void)
+# include "Weapon.hpp"
+
+class HumanA
 {
-	std::string str = "HI THIS IS BRAIN";
-	std::string *pstr = &str;
-	std::string &rstr = str;
+	std::string _name;
+	Weapon& _weapon;
+public:
+	HumanA(std::string name, Weapon& weapon);
+	~HumanA(void);
+	std::string getName(void) const;
+	void attack(void) const;
+};
 
-	std::cout << "El valor de la cadena usando una variable de tipo puntero es: " << *pstr << std::endl;
-	std::cout << "El valor de la cadena usando una variable de tipo referencia es: " << rstr << std::endl;
-
-	return (0);
-}
+#endif

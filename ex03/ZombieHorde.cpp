@@ -6,7 +6,7 @@
 /*   By: migferna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/14 14:28:01 by migferna          #+#    #+#             */
-/*   Updated: 2021/03/14 20:49:54 by migferna         ###   ########.fr       */
+/*   Updated: 2021/03/21 19:35:00 by migferna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,25 @@
 
 ZombieHorde::ZombieHorde(int size):_size(size)
 {
-	std::string name;
-	int it;
-
-	this->_horde = new Zombie[getSize()];
-	it = -1;
-	while (++it < getSize())
+	try
 	{
-		name = randomChump();
-		this->_horde[it].setName(name);
+		if (size < 0 || size > 2147483647)
+			throw std::string("Bad size");
+		std::string name;
+		int it;
+
+		this->_horde = new Zombie[getSize()];
+		it = -1;
+		while (++it < getSize())
+		{
+			name = randomChump();
+			this->_horde[it].setName(name);
+		}
+	}
+	catch(std::string error)
+	{
+		std::cerr << error << std::endl;
+		this->_size = 0;
 	}
 }
 

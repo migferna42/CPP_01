@@ -12,10 +12,12 @@ class Pony
 	int					age;
 public:
 	Pony();
-	Pony(std::string const name, std::string const color, int weight, int age);
+	Pony(std::string const name, std::string const color, int weight);
 	~Pony();
-	void hi();
-	void sound(std::string str);
+	void hi() const;
+	void run() const;
+	void jump() const;
+	void sound(std::string str) const;
 };
 
 #endif
